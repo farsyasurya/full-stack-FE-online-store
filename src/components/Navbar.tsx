@@ -29,9 +29,9 @@ const Navbar = () => {
 
   return (
     <nav className="bg-blue-700 text-white px-6 py-4 shadow-md flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold hover:opacity-90">
+      <Link to="/" className="text-2xl font-bold hover:opacity-90 flex">
         <img
-          className="w-4 h-auto"
+          className="w-14 h-auto "
           src="https://iili.io/KBFUkhv.md.png"
           alt=""
         />{" "}

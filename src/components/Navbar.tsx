@@ -30,7 +30,12 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-700 text-white px-6 py-4 shadow-md flex justify-between items-center">
       <Link to="/" className="text-2xl font-bold hover:opacity-90">
-        🛒 FARSYA STORE
+        <img
+          className="w-4 h-auto"
+          src="https://iili.io/KBFUkhv.md.png"
+          alt=""
+        />{" "}
+        FAR STORE
       </Link>
 
       <div className="flex items-center gap-4 text-sm font-medium">

@@ -81,7 +81,7 @@ const AllProductsPage = () => {
       </h2>
 
       {/* Filter & Sort Controls */}
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
+      <div className="flex text-blue-950 flex-col md:flex-row gap-4 mb-6">
         <input
           type="text"
           placeholder="Cari produk..."
@@ -106,7 +106,7 @@ const AllProductsPage = () => {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="border px-4 py-2 rounded w-full md:w-1/6"
+          className="border text-blue-950 px-4 py-2 rounded w-full md:w-1/6"
         >
           <option value="name">Nama</option>
           <option value="price">Harga</option>
@@ -115,7 +115,7 @@ const AllProductsPage = () => {
         <select
           value={order}
           onChange={(e) => setOrder(e.target.value)}
-          className="border px-4 py-2 rounded w-full md:w-1/6"
+          className="border text-blue-950 px-4 py-2 rounded w-full md:w-1/6"
         >
           <option value="asc">⬆️ Naik</option>
           <option value="desc">⬇️ Turun</option>
@@ -143,7 +143,7 @@ const AllProductsPage = () => {
             <button
               onClick={() => setSearchParams({ page: String(page - 1) })}
               disabled={page <= 1}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-3 py-1 text-blue-950 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               ⬅️ Prev
             </button>
@@ -151,7 +151,7 @@ const AllProductsPage = () => {
             <button
               onClick={() => setSearchParams({ page: String(page + 1) })}
               disabled={products.length < 8}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-3 py-1 text-blue-950 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               Next ➡️
             </button>

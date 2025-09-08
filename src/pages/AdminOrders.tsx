@@ -39,9 +39,6 @@ const AdminOrders = () => {
     fetchOrders();
   }, []);
 
-  import jsPDF from "jspdf";
-  import autoTable from "jspdf-autotable";
-
   const handleExportPDF = async (
     orders: Order[],
     adminName: string,

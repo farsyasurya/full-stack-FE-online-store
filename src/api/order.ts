@@ -4,7 +4,7 @@ export const orderProduct = async (productId: number) => {
   const token = localStorage.getItem("token");
 
   const res = await axios.post(
-    "http://localhost:3000/api/products/order",
+    "https://full-stack-be-online-store-production.up.railway.app/api/products/order",
     { productId },
     {
       withCredentials: true,

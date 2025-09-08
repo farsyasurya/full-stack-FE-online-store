@@ -91,7 +91,7 @@ const ProductCard = ({ product, onOrder }: Props) => {
         {" "}
         {/* Added flex for centering */}
         <img
-          src={`http://localhost:3000/uploads/${product.image}`}
+          src={`https://full-stack-be-online-store-production.up.railway.app/uploads/${product.image}`}
           alt={product.name}
           className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" // Changed object-cover to object-contain
         />

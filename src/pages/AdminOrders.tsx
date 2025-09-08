@@ -20,7 +20,7 @@ const AdminOrders = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://localhost:3000/api/products/order/me",
+        "https://full-stack-be-online-store-production.up.railway.app/api/products/order/me",
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -1,7 +1,8 @@
 // src/services/AuthApi.ts
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/api/auth";
+const BASE_URL =
+  "https://full-stack-be-online-store-production.up.railway.app/api/auth";
 
 axios.defaults.withCredentials = true;
 

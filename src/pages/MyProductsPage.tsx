@@ -32,10 +32,13 @@ const MyProductsPage = () => {
   const fetchProducts = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:3000/api/products/mine", {
-        headers: { Authorization: `Bearer ${token}` },
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://full-stack-be-online-store-production.up.railway.app/api/products/mine",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        }
+      );
       setProducts(res.data.products);
     } catch (err: any) {
       console.error(
@@ -108,10 +111,13 @@ const MyProductsPage = () => {
     if (result.isConfirmed) {
       try {
         const token = localStorage.getItem("token");
-        await axios.delete(`http://localhost:3000/api/products/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-          withCredentials: true,
-        });
+        await axios.delete(
+          `https://full-stack-be-online-store-production.up.railway.app/api/products/${id}`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+            withCredentials: true,
+          }
+        );
         Swal.fire(
           "Terhapus!",
           "Produk berhasil dihapus (soft delete).",
@@ -140,7 +146,7 @@ const MyProductsPage = () => {
       try {
         const token = localStorage.getItem("token");
         await axios.patch(
-          `http://localhost:3000/api/products/restore/${id}`,
+          `https://full-stack-be-online-store-production.up.railway.app/api/products/restore/${id}`,
           {},
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -172,7 +178,7 @@ const MyProductsPage = () => {
       try {
         const token = localStorage.getItem("token");
         await axios.delete(
-          `http://localhost:3000/api/products/hard-delete/${id}`,
+          `https://full-stack-be-online-store-production.up.railway.app/api/products/hard-delete/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
             withCredentials: true,
@@ -332,7 +338,7 @@ const MyProductsPage = () => {
             >
               <div className="w-full aspect-square overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-gray-100 dark:bg-gray-700">
                 <img
-                  src={`http://localhost:3000/uploads/${product.image}`}
+                  src={`https://full-stack-be-online-store-production.up.railway.app/uploads/${product.image}`}
                   alt={product.name}
                   className="w-full h-full object-contain transition-transform duration-300"
                 />
@@ -383,7 +389,7 @@ const MyProductsPage = () => {
             >
               <div className="w-full aspect-square overflow-hidden rounded-lg mb-4 flex items-center justify-center bg-gray-200 dark:bg-gray-600">
                 <img
-                  src={`http://localhost:3000/uploads/${product.image}`}
+                  src={`https://full-stack-be-online-store-production.up.railway.app/uploads/${product.image}`}
                   alt={product.name}
                   className="w-full h-full object-contain rounded grayscale transition-transform duration-300"
                 />

@@ -18,7 +18,7 @@ const CardProfileUser = () => {
         if (!token) return;
 
         const res = await axios.get(
-          "http://localhost:3000/api/auth/user/profile",
+          "https://full-stack-be-online-store-production.up.railway.app/api/auth/user/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ const CardProfileUser = () => {
         <img
           src={
             user.profile
-              ? `http://localhost:3000/uploads/${user.profile}`
+              ? `https://full-stack-be-online-store-production.up.railway.app/uploads/${user.profile}`
               : "https://ui-avatars.com/api/?name=User&background=0D8ABC&color=fff"
           }
           alt="Foto Profil"

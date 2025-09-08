@@ -16,12 +16,15 @@ const SaldoPage = () => {
 
     const fetchSaldo = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/me/saldo", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://full-stack-be-online-store-production.up.railway.app/api/auth/me/saldo",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
 
         setBalance(res.data.balance);
         setMessage(res.data.message);

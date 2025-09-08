@@ -19,7 +19,7 @@ const LoginAdmin = () => {
       setError("");
 
       const res = await axios.post(
-        "http://localhost:3000/api/auth/login/admin",
+        "https://full-stack-be-online-store-production.up.railway.app/api/auth/login/admin",
         { email, password },
         { withCredentials: true }
       );

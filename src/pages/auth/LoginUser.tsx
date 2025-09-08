@@ -16,10 +16,13 @@ function LoginUserPage() {
     try {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
-      const res = await axios.post("http://localhost:3000/api/auth/login", {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://full-stack-be-online-store-production.up.railway.app/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
       const token = res.data.token;
       const user = res.data.user;
 

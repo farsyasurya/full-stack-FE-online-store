@@ -30,9 +30,13 @@ const RegisterUserPage = () => {
     }
 
     try {
-      await axios.post("http://localhost:3000/api/auth/register", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.post(
+        "https://full-stack-be-online-store-production.up.railway.app/api/auth/register",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
       navigate("/login");
     } catch (err: any) {
       console.log("Register Error:", err.response?.data);

@@ -46,7 +46,7 @@ const AllProductsPage = () => {
         if (maxPrice) params.maxPrice = maxPrice;
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          "http://localhost:3000/api/products/all-products",
+          "https://full-stack-be-online-store-production.up.railway.app/api/products/all-products",
           {
             params,
             headers: {

@@ -5,7 +5,7 @@ export const getAllProducts = async (_token: string) => {
 
   try {
     const res = await axios.get(
-      "http://localhost:3000/api/products/all-products",
+      "https://full-stack-be-online-store-production.up.railway.app/api/products/all-products",
       {
         headers: {
           Authorization: `Bearer ${token}`,

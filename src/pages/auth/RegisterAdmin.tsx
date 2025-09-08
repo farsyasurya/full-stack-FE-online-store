@@ -21,7 +21,7 @@ const RegisterAdmin = () => {
       }
 
       const res = await axios.post(
-        "http://localhost:3000/api/auth/register/admin",
+        "https://full-stack-be-online-store-production.up.railway.app/api/auth/register/admin",
         form,
         {
           withCredentials: true,

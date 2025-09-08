@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://full-stack-be-online-store-production.up.railway.app/api",
   withCredentials: true, // penting untuk cookie JWT
 });

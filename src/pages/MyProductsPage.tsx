@@ -63,7 +63,7 @@ const MyProductsPage = () => {
       const token = localStorage.getItem("token");
       if (form.editId) {
         await axios.put(
-          `http://localhost:3000/api/products/${form.editId}`,
+          `https://full-stack-be-online-store-production.up.railway.app/api/products/${form.editId}`,
           formData,
           {
             headers: {

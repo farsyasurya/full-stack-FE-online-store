@@ -38,47 +38,81 @@ const OrdersPage = () => {
     fetchOrders();
   }, []);
 
-  const handleDownloadPDF = (order: Order) => {
-    const doc = new jsPDF();
+  const handleDownloadPDF = async (order: Order) => {
+    // ukuran struk: lebar 80mm, tinggi 150mm (bisa auto menyesuaikan konten)
+    const doc = new jsPDF({
+      unit: "mm",
+      format: [80, 150],
+    });
+
+    // ambil logo dari URL → convert ke base64
+    const getBase64ImageFromUrl = async (url: string) => {
+      const res = await fetch(url);
+      const blob = await res.blob();
+      return new Promise<string>((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.readAsDataURL(blob);
+      });
+    };
+
+    const logo = await getBase64ImageFromUrl("https://iili.io/KBFUkhv.md.png");
+
+    let y = 10;
+
+    // tampilkan logo di atas
+    doc.addImage(logo, "PNG", 20, y, 40, 20);
+    y += 28;
+
+    // teks header
+    doc.setFont("courier", "bold");
+    doc.setFontSize(12);
+    doc.text("FARSYA STORE", 40, y, { align: "center" });
+    y += 6;
 
     doc.setFont("courier", "normal");
-    doc.setFontSize(14);
+    doc.setFontSize(10);
+    doc.text("----------------------------------------", 40, y, {
+      align: "center",
+    });
+    y += 6;
 
-    let y = 20;
-
-    doc.text("🧾 FARSYA STORE", 20, y);
-    y += 8;
-    doc.line(20, y, 190, y);
-    y += 10;
-
-    doc.text(`ID ORDER    : #${order.id}`, 20, y);
-    y += 8;
+    // isi transaksi
+    doc.text(`ID ORDER : #${order.id}`, 10, y);
+    y += 5;
     doc.text(
-      `TANGGAL     : ${new Date(order.tanggal).toLocaleString("id-ID", {
+      `TANGGAL  : ${new Date(order.tanggal).toLocaleString("id-ID", {
         dateStyle: "medium",
         timeStyle: "short",
       })}`,
-      20,
+      10,
       y
     );
     y += 8;
 
-    doc.line(20, y, 190, y);
-    y += 10;
+    doc.text("----------------------------------------", 40, y, {
+      align: "center",
+    });
+    y += 6;
 
-    doc.text(`PRODUK      : ${order.produk}`, 20, y);
+    doc.text(`PRODUK   : ${order.produk}`, 10, y);
+    y += 5;
+    doc.text(`HARGA    : Rp ${order.harga.toLocaleString("id-ID")}`, 10, y);
+    y += 5;
+    doc.text(`ADMIN    : ${order.admin}`, 10, y);
     y += 8;
-    doc.text(`HARGA       : Rp ${order.harga.toLocaleString("id-ID")}`, 20, y);
+
+    doc.text("----------------------------------------", 40, y, {
+      align: "center",
+    });
     y += 8;
-    doc.text(`ADMIN       : ${order.admin}`, 20, y);
-    y += 10;
 
-    doc.line(20, y, 190, y);
-    y += 12;
-
-    doc.setFontSize(12);
+    // footer
+    doc.setFontSize(9);
     doc.setTextColor(100);
-    doc.text("TERIMA KASIH TELAH BERBELANJA", 20, y);
+    doc.text("=== TERIMA KASIH TELAH BERBELANJA ===", 40, y, {
+      align: "center",
+    });
 
     doc.save(`bukti-transaksi-${order.id}.pdf`);
   };

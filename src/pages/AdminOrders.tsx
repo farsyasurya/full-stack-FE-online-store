@@ -39,6 +39,9 @@ const AdminOrders = () => {
     fetchOrders();
   }, []);
 
+  import jsPDF from "jspdf";
+  import autoTable from "jspdf-autotable";
+
   const handleExportPDF = async (
     orders: Order[],
     adminName: string,
@@ -68,8 +71,8 @@ const AdminOrders = () => {
 
     // header toko
     doc.setFont("courier", "bold");
-    doc.setFontSize(18);
-    doc.text("🛒 FARSYA STORE", 105, 30, { align: "center" });
+    doc.setFontSize(16);
+    doc.text("FARSYA STORE", 105, 30, { align: "center" });
 
     doc.setFontSize(10);
     doc.text("Jl. Pemrograman No. 123, Jakarta", 105, 36, { align: "center" });
@@ -82,22 +85,23 @@ const AdminOrders = () => {
 
     // judul laporan
     doc.setFontSize(12);
-    doc.setFont("courier", "normal");
-    doc.text("📃 Laporan Order Masuk", 105, 50, { align: "center" });
+    doc.setFont("courier", "bold");
+    doc.text("LAPORAN ORDER MASUK", 105, 52, { align: "center" });
 
     doc.setFontSize(10);
-    doc.text(`Admin: ${adminName}`, 15, 56);
-    doc.text(`Dicetak: ${new Date().toLocaleString("id-ID")}`, 195, 56, {
+    doc.setFont("courier", "normal");
+    doc.text(`Admin: ${adminName}`, 15, 60);
+    doc.text(`Dicetak: ${new Date().toLocaleString("id-ID")}`, 195, 60, {
       align: "right",
     });
 
     if (startDate && endDate) {
-      doc.text(`Periode: ${startDate} s/d ${endDate}`, 15, 62);
+      doc.text(`Periode: ${startDate} s/d ${endDate}`, 15, 66);
     }
 
     // tabel order
     autoTable(doc, {
-      startY: startDate && endDate ? 68 : 64,
+      startY: startDate && endDate ? 72 : 68,
       head: [["No", "Produk", "Harga", "Tanggal", "Pembeli"]],
       body: orders.map((order, i) => [
         i + 1,
@@ -128,14 +132,9 @@ const AdminOrders = () => {
     doc.setFont("courier", "normal");
     doc.setFontSize(10);
     doc.setTextColor(100);
-    doc.text(
-      "Terima kasih telah menggunakan layanan kami 💙",
-      105,
-      finalY + 18,
-      {
-        align: "center",
-      }
-    );
+    doc.text("Terima kasih telah menggunakan layanan kami", 105, finalY + 18, {
+      align: "center",
+    });
 
     // nomor halaman
     const pageCount = (doc as any).internal.getNumberOfPages();

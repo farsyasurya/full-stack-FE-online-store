@@ -76,7 +76,7 @@ const MyProductsPage = () => {
         Swal.fire("Berhasil!", "Produk berhasil diupdate.", "success");
       } else {
         await axios.post(
-          "http://localhost:3000/api/products/create",
+          "https://full-stack-be-online-store-production.up.railway.app/api/products/create",
           formData,
           {
             headers: {

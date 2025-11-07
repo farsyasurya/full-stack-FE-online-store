@@ -1,69 +1,45 @@
-# React + TypeScript + Vite
+# 💰 Fynest — Personal Finance Tracker (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Fynest adalah aplikasi catatan keuangan pribadi yang membantu pengguna mengelola pemasukan, pengeluaran, dan saldo secara efisien.  
+Frontend ini dibangun menggunakan **React + Vite**, dengan desain modern dari **TailwindCSS** dan **ShadCN UI**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ React + Vite
+- 🎨 TailwindCSS
+- 🧩 ShadCN UI
+- 🔄 Axios (HTTP Client)
+- 🔐 JWT Authentication
+- 🗂️ React Router DOM
+- 💾 LocalStorage untuk token & session
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Struktur Folder
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+│
+├── api/ # File helper API (axios instance)
+├── components/ # Reusable components (Card, Button, Modal)
+├── hooks/ # Custom hooks (useAuth, useFetch, dsb)
+├── pages/ # Halaman utama (Login, Register, Dashboard, Transaction)
+├── context/ # Context User & Auth
+└── main.tsx # Entry point utama
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ⚙️ Instalasi & Setup
+
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/username/fynest-frontend.git
+cd fynest-frontend
+npm install
+npm run dev
+
 ```
